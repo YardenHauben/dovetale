@@ -658,13 +658,6 @@
       .friendAddField{
         align-items:center;
       }
-      .friendAddField .inlineForm{
-        align-items:stretch;
-      }
-      .friendAddField .inlineForm .btn{
-        padding-top:0;
-        padding-bottom:0;
-      }
       #friendUsername{
         width:180px;
         padding:12px 14px;
@@ -830,6 +823,7 @@
       const SUPABASE_URL = "https://uleruodavjlbwjgqsgsi.supabase.co";
       const SUPABASE_ANON_KEY = "sb_publishable_QqVzr47UcMiLnWuIDFJAdg_r1eX0Ftm";
       const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const SITE_URL = "https://dovetaleletters.com/";
       const SEAL_COLORS = ["#8c2f39", "#45563d", "#b8944f", "#2b3a4a", "#5c2a4d", "#a86c1d"];
       const authScreen = document.getElementById("authScreen");
       const readScreen = document.getElementById("readScreen");
@@ -852,7 +846,7 @@
         try{
           const {error} = await sb.auth.signInWithOtp({
             email,
-            options:{emailRedirectTo:window.location.href}
+            options:{emailRedirectTo:SITE_URL}
           });
           msg.textContent = error ? error.message : "Check your email for the link.";
         }catch(err){
